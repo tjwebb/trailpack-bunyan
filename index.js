@@ -1,33 +1,12 @@
 const Trailpack = require('trailpack')
+const BunyanProxy = require('./lib/BunyanProxy.js')
 
 module.exports = class BunyanTrailpack extends Trailpack {
 
-  /**
-   * TODO document method
-   */
-  validate () {
-
-  }
-
-  /**
-   * TODO document method
-   */
   configure () {
-
-  }
-
-  /**
-   * TODO document method
-   */
-  async initialize () {
-
-  }
-
-  /**
-   * TODO document method
-   */
-  async unload () {
-
+    if (this.app.config.get('log.level') === 'silly') {
+      this.app.config.set('log.level', 'trace')
+    }
   }
 
   constructor (app) {
@@ -36,6 +15,8 @@ module.exports = class BunyanTrailpack extends Trailpack {
       api: require('./api'),
       pkg: require('./package')
     })
+
+    this.app.log = new BunyanProxy(this.app.config.log)
   }
 }
 

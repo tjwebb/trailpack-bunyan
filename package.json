@@ -8,6 +8,7 @@
     "trailjs"
   ],
   "dependencies": {
+    "bunyan": "^1.8.10",
     "trailpack": "next"
   },
   "devDependencies": {

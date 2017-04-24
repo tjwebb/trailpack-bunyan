@@ -13,7 +13,21 @@ describe('trailpack-bunyan', () => {
     it.skip('TODO test')
   })
   describe('#initialize', () => {
-    it.skip('TODO test')
+    it('app.log.silly', () => {
+      global.app.log.silly('123')
+    })
+    it('app.log.debug', () => {
+      global.app.log.debug('234')
+    })
+    it('app.log.info', () => {
+      global.app.log.info('345')
+    })
+    it('app.log.warn', () => {
+      global.app.log.warn('456')
+    })
+    it('app.log.error', () => {
+      global.app.log.error('567')
+    })
   })
   describe('#unload', () => {
     it.skip('TODO test')
